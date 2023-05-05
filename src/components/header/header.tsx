@@ -1,18 +1,19 @@
-import { InnerBlock, Logo } from './style.ts';
+import { InnerBlock, Logo, Menu, ExternalBlock, LogoText, InnerContent } from './style.ts';
+import Icon from '../../assets/icons/logo.svg';
 
 export default function Header () {
     return (
-        <div>
+        <ExternalBlock>
             <InnerBlock>
                 <Logo>
-                    <p>Pic</p>
-                    <h2>Jobored</h2>
+                    <Icon />
+                    <LogoText>Jobored</LogoText>
                 </Logo>
-                <div>
-                    <h4>Поиск Вакансий</h4>
-                    <h4>Избранное</h4>
-                </div>
+                <Menu>
+                    <InnerContent>Поиск Вакансий</InnerContent>
+                    <InnerContent>Избранное</InnerContent>
+                </Menu>
             </InnerBlock>
-        </div>
+        </ExternalBlock>
     );
 }
