@@ -30,13 +30,13 @@ const ExternalBlock = styled.div`
 `;
 
 const InnerContent = styled.h2`
-  font-family: 'Inter';
+  font-family: 'Inter', serif;
   font-weight: 500;
   font-size: 1rem;
 `;
 
 const LogoText = styled.h2`
-  font-family: 'Poppins';
+  font-family: 'Poppins', serif;
   font-weight: 600;
   font-size: 1.5rem;
   color: ${black}
