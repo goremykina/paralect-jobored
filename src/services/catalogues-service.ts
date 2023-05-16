@@ -4,6 +4,6 @@ interface Catalogue {
 }
 
 export const list = async () : Promise<Catalogue[]> => {
-    const response = await fetch('https://api.superjob.ru/2.0/catalogues/');
-    return await response.json();
+    // const catalogues = await api.get('/catalogues');
+    return [];
 };
