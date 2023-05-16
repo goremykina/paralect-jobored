@@ -2,28 +2,27 @@ import styled from "styled-components";
 import { black, gray500, lightGray, white } from "../../../../styles/colors.ts";
 import AsyncSelect from "react-select/async";
 
-const Filters = styled.div`
-  width: 20rem;
+export const Filters = styled.div`
+  width: 25rem;
   background: ${white};
-  border: 0.06rem solid ${lightGray};
-  border-radius: 1.3rem;
+  border: 1px solid #EAEBED;
+  border-radius: 0.75rem;
   padding: 1.25rem;
 `;
 
-const TopPart = styled.div`
+export const TopPart = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 `;
 
-const FormContent = styled.form`
+export const FormContent = styled.form`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 `;
 
-const Input = styled.input`
-  width: 17.2rem;
+export const Input = styled.input`
   height: 2.6rem;
   border: 1px solid ${lightGray};
   border-radius: 0.5rem;
@@ -31,26 +30,31 @@ const Input = styled.input`
   font-size: 0.875rem;
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   font-size: 16px;
   font-weight: 700;
   color: ${black};
 `;
 
-const LabelUp = styled.label`
+export const LabelUp = styled.label`
   font-size: 20px;
   color: ${black};
   font-weight: 700;
 `;
 
-const TopButton = styled.button`
+export const TopButton = styled.button`
   border: none;
   background: white;
   color: ${gray500};
   font-size: 0.875rem;
 `;
 
-const Select = styled(AsyncSelect)`
+export const  WrapperReset = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Select = styled(AsyncSelect)`
   font-size: 0.875rem;
   
   .react-select__control {
@@ -65,8 +69,6 @@ const Select = styled(AsyncSelect)`
   }
 `;
 
-const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   margin-top: 0.75rem;
 `;
-
-export { Filters, FormContent, TopPart, Input, Label, LabelUp, TopButton, Select, ButtonWrapper };

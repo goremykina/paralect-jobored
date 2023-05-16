@@ -1,0 +1,15 @@
+import styled from "styled-components";
+
+export const HomeContent = styled.div`
+  width: 70rem;
+  display: flex;
+  gap: 1.75rem;
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+

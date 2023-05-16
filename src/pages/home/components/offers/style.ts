@@ -1,53 +1,51 @@
 import styled from "styled-components";
 import { black, blue, white } from "../../../../styles/colors.ts";
 
-const OfferDiv = styled.div`
+export const OfferDiv = styled.div`
   background: ${white};
   border: 0.06rem solid #EAEBED;
   border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
+  gap: 0.75rem;
   padding: 1.5rem;
 `;
 
-const OfferName = styled.div`
+export const OfferName = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0;
   align-items: center;
 `;
 
-const JobVacancy = styled.h3`
+export const JobVacancy = styled.h3`
   color: ${blue};
   font-weight: 600;
   font-size: 20px;
   margin: 0;
 `;
 
-const BriefInfo = styled.div`
+export const BriefInfo = styled.div`
   display: flex;
-  gap: 1.3rem;
+  gap: 0.75rem;
   align-items: center;
 `;
 
-const SalarySpan = styled.span`
+export const Salary = styled.span`
   font-weight: 600;
   font-size: 16px;
   color: ${black};
   margin: 0;
 `;
 
-const InformationSpan = styled.span`
+export const Information = styled.span`
   font-weight: 400;
   font-size: 16px;
   color: ${black};
   margin: 0;
 `;
 
-const LocationDiv = styled.div`
+export const LocationWrapper = styled.div`
   display: flex;
-  gap: 1.4rem;
+  gap: 0.75rem;
 `;
-
-export { OfferDiv, OfferName, JobVacancy, BriefInfo, SalarySpan, InformationSpan, LocationDiv };

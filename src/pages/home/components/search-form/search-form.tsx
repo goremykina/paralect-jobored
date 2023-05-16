@@ -1,6 +1,18 @@
-import { Filters, FormContent, TopPart, Input, Label, LabelUp, TopButton, Select, ButtonWrapper } from "./style.ts";
+import {
+    Filters,
+    FormContent,
+    TopPart,
+    Input,
+    Label,
+    LabelUp,
+    TopButton,
+    Select,
+    ButtonWrapper,
+    WrapperReset
+} from "./style.ts";
 import {  list } from "../../../../services/catalogues-service.ts";
 import Button from "../../../../components/button/button.tsx";
+import Cross from '../../../../assets/icons/cross.svg';
 
 type OptionType = {
     value: string;
@@ -8,18 +20,6 @@ type OptionType = {
 }
 
 export default function SearchForm() {
-
-    // const [list, setList] = useState([]);
-    // function getList () {
-    //     return fetch('https://api.superjob.ru/2.0/catalogues/')
-    //         .then(res => res.json());
-    // }
-
-    // useEffect(()=> {
-    //     getList()
-    //         .then(item => setList(item));
-    //
-    // });
 
     const getOptions = async () : Promise<OptionType[]> => {
         const catalogues = await list();
@@ -33,7 +33,10 @@ export default function SearchForm() {
         <Filters>
             <TopPart>
                 <LabelUp>Фильтры</LabelUp>
-                <TopButton>Сбросить все</TopButton>
+                <WrapperReset>
+                    <TopButton>Сбросить все</TopButton>
+                    <Cross />
+                </WrapperReset>
             </TopPart>
             <FormContent>
                 <Label>Отрасль</Label>
