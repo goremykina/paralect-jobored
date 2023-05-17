@@ -1,11 +1,11 @@
 import { InnerBlock, Logo, Menu, ExternalBlock, LogoText, InnerContent } from './style.ts';
-import Icon from '../../assets/icons/logo.svg';
+import Icon from '../../../../assets/icons/logo.svg';
 
 export default function Header () {
     return (
         <ExternalBlock>
             <InnerBlock>
-                <Logo href="/">
+                <Logo to="/">
                     <Icon />
                     <LogoText>Jobored</LogoText>
                 </Logo>

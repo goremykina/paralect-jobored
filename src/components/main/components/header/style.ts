@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { black, white } from '../../styles/colors.ts';
-import { gaps } from "../../styles/dismesions.ts";
+import { black, white } from '../../../../styles/colors.ts';
+import { gaps } from "../../../../styles/dismesions.ts";
+import { Link } from "react-router-dom";
 
 export const InnerBlock = styled.div`
   max-width: 70rem;
@@ -11,7 +12,7 @@ export const InnerBlock = styled.div`
   margin: 0 auto;
 `;
 
-export const Logo = styled.a`
+export const Logo = styled(Link)`
   display: flex;
   align-items: center;
   position: absolute;

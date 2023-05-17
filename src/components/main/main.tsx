@@ -1,13 +1,14 @@
 import { MainContent } from "./style.ts";
+import { Outlet } from "react-router-dom";
+import Header from "./components/header/header.tsx";
 
-type Props = {
-    children: JSX.Element
-}
-
-export default function Main({ children } : Props) {
+export default function Main() {
     return (
-        <MainContent>
-            {children}
-        </MainContent>
+        <>
+            <Header />
+            <MainContent>
+                <Outlet />
+            </MainContent>
+        </>
     );
 }
