@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { black, white } from '../../../../styles/colors.ts';
+import { black, blue, white } from '../../../../styles/colors.ts';
 import { gaps } from "../../../../styles/dismesions.ts";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const InnerBlock = styled.div`
   max-width: 70rem;
@@ -31,10 +31,16 @@ export const ExternalBlock = styled.div`
   background-color: ${white};
 `;
 
-export const InnerContent = styled.h2`
+export const NavBarLink = styled(NavLink)`
   font-family: 'Inter', serif;
   font-weight: 500;
   font-size: 1rem;
+  text-decoration: none;
+  color: ${black};
+  
+  &.active {
+    color: ${blue};
+  }
 `;
 
 export const LogoText = styled.h2`

@@ -1,4 +1,4 @@
-import { InnerBlock, Logo, Menu, ExternalBlock, LogoText, InnerContent } from './style.ts';
+import { InnerBlock, Logo, Menu, ExternalBlock, LogoText, NavBarLink } from './style.ts';
 import Icon from '../../../../assets/icons/logo.svg';
 
 export default function Header () {
@@ -10,8 +10,8 @@ export default function Header () {
                     <LogoText>Jobored</LogoText>
                 </Logo>
                 <Menu>
-                    <InnerContent>Поиск Вакансий</InnerContent>
-                    <InnerContent>Избранное</InnerContent>
+                    <NavBarLink to="/">Поиск Вакансий</NavBarLink>
+                    <NavBarLink to="/favorites">Избранное</NavBarLink>
                 </Menu>
             </InnerBlock>
         </ExternalBlock>
