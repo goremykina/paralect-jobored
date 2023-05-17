@@ -26,9 +26,6 @@ const getHeight = ({ size }: Props) => {
 };
 
 export const  StyledButton = styled.button`
-  //position: absolute;
-  //top: 0.5rem;
-  //right: 0.75rem;
   height: ${getHeight};
   background: ${blue};
   border-radius: 0.5rem;

@@ -13,6 +13,7 @@ import {
 import {  list } from "../../../../services/catalogues-service.ts";
 import Button from "../../../../components/button/button.tsx";
 import Cross from '../../../../assets/icons/cross.svg';
+import { useEffect, useState } from "react";
 
 type OptionType = {
     value: string;
@@ -20,6 +21,14 @@ type OptionType = {
 }
 
 export default function SearchForm() {
+    const [industryOption, setIndustryOption] = useState<OptionType | null>(null);
+    const [salaryFrom, setSalaryFrom] = useState('');
+    const [salaryTo, setSalaryTo] = useState('');
+
+    useEffect(() => {
+        console.log(industryOption);
+    }, [industryOption]);
+
 
     const getOptions = async () : Promise<OptionType[]> => {
         const catalogues = await list();
@@ -30,7 +39,9 @@ export default function SearchForm() {
     };
 
     const  resetAll = () =>  {
-        console.log(1);
+        setIndustryOption(null);
+        setSalaryFrom('');
+        setSalaryTo('');
     };
 
     return (
@@ -38,7 +49,7 @@ export default function SearchForm() {
             <TopPart>
                 <LabelUp>Фильтры</LabelUp>
                 <WrapperReset>
-                    <TopButton onClick={resetAll}>Сбросить все</TopButton>
+                    <TopButton onClick={()=> resetAll()}>Сбросить все</TopButton>
                     <Cross />
                 </WrapperReset>
             </TopPart>
@@ -50,10 +61,12 @@ export default function SearchForm() {
                     placeholder="Выберете отрасль"
                     classNamePrefix="react-select"
                     defaultOptions
+                    value={industryOption}
+                    onChange={(option: unknown) => setIndustryOption(option as OptionType)}
                 />
                 <Label>Оклад</Label>
-                <Input type='number' placeholder='От' min='0' data-elem='salary-from-input'></Input>
-                <Input type='number' placeholder='До' min='0' data-elem='salary-to-input'></Input>
+                <Input type='number' placeholder='От' min='0'  value={salaryFrom} data-elem='salary-from-input'></Input>
+                <Input type='number' placeholder='До' min='0' value={salaryTo} data-elem='salary-to-input'></Input>
                 <ButtonWrapper>
                     <Button data-elem='search-button'>Применить</Button>
                 </ButtonWrapper>

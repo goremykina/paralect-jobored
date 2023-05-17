@@ -1,10 +1,10 @@
 import api from "./api-service.ts";
 
-interface Vacancy {
+type Vacancy = {
     id: string;
 }
 
-interface VacanciesPage {
+type VacanciesPage = {
     objects: Vacancy[];
     total: number;
 }
