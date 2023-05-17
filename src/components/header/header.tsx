@@ -5,7 +5,7 @@ export default function Header () {
     return (
         <ExternalBlock>
             <InnerBlock>
-                <Logo>
+                <Logo href="/">
                     <Icon />
                     <LogoText>Jobored</LogoText>
                 </Logo>

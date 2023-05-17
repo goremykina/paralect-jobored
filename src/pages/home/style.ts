@@ -4,6 +4,7 @@ export const HomeContent = styled.div`
   width: 70rem;
   display: flex;
   gap: 1.75rem;
+  align-items: flex-start;
 `;
 
 export const Wrapper = styled.div`

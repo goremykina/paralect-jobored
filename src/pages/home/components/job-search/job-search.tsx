@@ -8,9 +8,9 @@ export default function JobSearch () {
             <SearchIconWrapper>
                 <SearchIcon/>
             </SearchIconWrapper>
-            <SearchJobInput placeholder='Введите название вакансии' />
+            <SearchJobInput placeholder='Введите название вакансии' data-elem='search-input'/>
             <SearchButtonWrapper>
-                <Button size="small">Поиск</Button>
+                <Button size="small" data-elem='search-button'>Поиск</Button>
             </SearchButtonWrapper>
         </SearchJobDiv>
     );

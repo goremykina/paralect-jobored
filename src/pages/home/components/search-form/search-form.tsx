@@ -29,28 +29,33 @@ export default function SearchForm() {
         }));
     };
 
+    const  resetAll = () =>  {
+        console.log(1);
+    };
+
     return (
         <Filters>
             <TopPart>
                 <LabelUp>Фильтры</LabelUp>
                 <WrapperReset>
-                    <TopButton>Сбросить все</TopButton>
+                    <TopButton onClick={resetAll}>Сбросить все</TopButton>
                     <Cross />
                 </WrapperReset>
             </TopPart>
             <FormContent>
                 <Label>Отрасль</Label>
                 <Select
+                    data-elem='industry-select'
                     loadOptions={getOptions}
                     placeholder="Выберете отрасль"
                     classNamePrefix="react-select"
                     defaultOptions
                 />
                 <Label>Оклад</Label>
-                <Input type='number' placeholder='От'></Input>
-                <Input type='number' placeholder='До'></Input>
+                <Input type='number' placeholder='От' min='0' data-elem='salary-from-input'></Input>
+                <Input type='number' placeholder='До' min='0' data-elem='salary-to-input'></Input>
                 <ButtonWrapper>
-                    <Button>Применить</Button>
+                    <Button data-elem='search-button'>Применить</Button>
                 </ButtonWrapper>
             </FormContent>
         </Filters>

@@ -11,12 +11,13 @@ export const InnerBlock = styled.div`
   margin: 0 auto;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.a`
   display: flex;
   align-items: center;
   position: absolute;
   left: 0;
   gap: 0.5rem;
+  text-decoration: none;
 `;
 
 export const Menu = styled.div`
