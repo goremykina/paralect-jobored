@@ -1,7 +1,7 @@
 import {
     OfferDiv,
     OfferName,
-    JobVacancy,
+    JobTitleLink,
     BriefInfo,
     Salary,
     Information,
@@ -9,32 +9,23 @@ import {
 } from "./style.ts";
 import Location from '../../../../assets/icons/location.svg';
 import Star from "./components/star/star.tsx";
+import { Vacancy } from "../../../../services/vacancies-service.ts";
 
-export default function Offer() {
+type Props = {
+    vacancy: Vacancy
+};
 
-    const vacancy = {
-        id: 25746005,
-        profession: "Специалист по согласованиям",
-        work: "1. Подготовка, согласование с Комитетами и службами...",
-        type_of_work: {
-            id: 6,
-            title: "Полный рабочий день"
-        },
-        town: {
-            id: 14,
-            title: "Санкт-Петербург"
-        },
-        favorite: true,
-        payment : 'з/п от 70000 rub'
-    };
+export default function Vacancy({ vacancy } : Props) {
     return (
         <OfferDiv>
             <OfferName>
-                <JobVacancy>{vacancy.profession}</JobVacancy>
+                <JobTitleLink to={`/vacancies/${vacancy.id}`}>
+                    {vacancy.profession}
+                </JobTitleLink>
                 <Star isFavorite={vacancy.favorite} />
             </OfferName>
             <BriefInfo>
-                <Salary>{vacancy.payment}</Salary>
+                <Salary>{vacancy.payment_from}</Salary>
                 <span>・</span>
                 <Information>{vacancy.type_of_work.title}</Information>
             </BriefInfo>

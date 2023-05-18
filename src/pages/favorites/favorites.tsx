@@ -1,10 +1,10 @@
-import Offer from "../home/components/offers/offer.tsx";
+import Vacancy from "../../components/vacancies-list/components/vacancy/vacancy.tsx";
 
 export default function Favorites() {
     return (
         <div>
-            <Offer />
-            <Offer />
+            <Vacancy />
+            <Vacancy />
         </div>
     );
 }

@@ -13,7 +13,7 @@ import {
 import {  list } from "../../../../services/catalogues-service.ts";
 import Button from "../../../../components/button/button.tsx";
 import Cross from '../../../../assets/icons/cross.svg';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type OptionType = {
     value: string;
@@ -24,11 +24,6 @@ export default function SearchForm() {
     const [industryOption, setIndustryOption] = useState<OptionType | null>(null);
     const [salaryFrom, setSalaryFrom] = useState('');
     const [salaryTo, setSalaryTo] = useState('');
-
-    useEffect(() => {
-        console.log(industryOption);
-    }, [industryOption]);
-
 
     const getOptions = async () : Promise<OptionType[]> => {
         const catalogues = await list();

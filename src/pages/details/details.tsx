@@ -1,4 +1,4 @@
-import Offer from "../home/components/offers/offer.tsx";
+import Vacancy from "../../components/vacancies-list/components/vacancy/vacancy.tsx";
 import { InformationList, InfoWrapper, WrapperDetails } from "./styles.ts";
 import { Label } from "../home/components/search-form/style.ts";
 
@@ -21,7 +21,7 @@ export default function Details() {
 
     return (
         <WrapperDetails>
-            <Offer />
+            <Vacancy vacancy={vacancy} />
             <InfoWrapper>
                 <div>
                     <Label>Обязанности:</Label>

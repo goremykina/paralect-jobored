@@ -1,10 +1,26 @@
 import api from "./api-service.ts";
 
-type Vacancy = {
+export type Town = {
     id: string;
+    title: string;
+};
+
+export type TypeOfWork = {
+    id: string;
+    title: string;
+};
+
+export type Vacancy = {
+    id: string;
+    profession: string;
+    favorite: boolean;
+    payment_from: number;
+    payment_to: number;
+    town: Town;
+    type_of_work: TypeOfWork;
 }
 
-type VacanciesPage = {
+export type VacanciesPage = {
     objects: Vacancy[];
     total: number;
 }

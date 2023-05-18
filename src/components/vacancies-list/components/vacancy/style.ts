@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { black, blue, white } from "../../../../styles/colors.ts";
+import { Link } from "react-router-dom";
 
 export const OfferDiv = styled.div`
   background: ${white};
@@ -18,11 +19,12 @@ export const OfferName = styled.div`
   align-items: center;
 `;
 
-export const JobVacancy = styled.h3`
+export const JobTitleLink = styled(Link)`
   color: ${blue};
   font-weight: 600;
   font-size: 20px;
   margin: 0;
+  text-decoration: none;
 `;
 
 export const BriefInfo = styled.div`
