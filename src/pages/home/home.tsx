@@ -1,4 +1,4 @@
-import SearchForm from "./components/search-form/search-form.tsx";
+import SearchForm, { Filter } from "./components/search-form/search-form.tsx";
 import { HomeContent, Wrapper } from "./style.ts";
 import JobSearch from "./components/job-search/job-search.tsx";
 import VacanciesList from "../../components/vacancies-list/vacancies-list.tsx";
@@ -8,22 +8,27 @@ import { getVacanciesPage, VacanciesPage } from "../../services/vacancies-servic
 export default function Home()  {
     const [vacanciesPage, setVacanciesPage] = useState<VacanciesPage | null>(null);
     const [keyword, setKeyword] = useState('');
+    const [filter, setFilter] = useState<Filter | null>(null);
 
     useEffect(() => {
         const getPage = async () => {
-            const page = await getVacanciesPage(0, 4, keyword);
+            const page = await getVacanciesPage(0, 4, keyword, filter?.salaryFrom, filter?.salaryTo, filter?.catalogueId);
             setVacanciesPage(page);
         };
         getPage();
-    }, [keyword]);
+    }, [keyword, filter]);
 
     const handleKeywordChanged = (newKeyword: string) => {
         setKeyword(newKeyword);
     };
 
+    const handleFilterChanged = (newFilter : Filter | null) => {
+        setFilter(newFilter);
+    };
+
     return (
         <HomeContent>
-            <SearchForm />
+            <SearchForm onFilterChange={handleFilterChanged} />
             <Wrapper>
                 <JobSearch onKeywordChanged={handleKeywordChanged} />
                 <VacanciesList page={vacanciesPage} />

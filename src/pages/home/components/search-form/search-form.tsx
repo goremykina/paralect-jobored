@@ -13,15 +13,26 @@ import {
 import {  list } from "../../../../services/catalogues-service.ts";
 import Button from "../../../../components/button/button.tsx";
 import Cross from '../../../../assets/icons/cross.svg';
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 type OptionType = {
     value: string;
     label: string;
 }
 
-export default function SearchForm() {
-    const [industryOption, setIndustryOption] = useState<OptionType | null>(null);
+ export type Filter = {
+    catalogueId : string | null;
+    salaryFrom: string | null;
+    salaryTo: string | null;
+}
+
+type Prop = {
+    onFilterChange: (filter : Filter | null) => unknown;
+}
+
+
+export default function SearchForm({ onFilterChange } : Prop) {
+    const [catalogueOption, setCatalogueOption] = useState<OptionType | null>(null);
     const [salaryFrom, setSalaryFrom] = useState('');
     const [salaryTo, setSalaryTo] = useState('');
 
@@ -34,9 +45,20 @@ export default function SearchForm() {
     };
 
     const  resetAll = () =>  {
-        setIndustryOption(null);
+        setCatalogueOption(null);
         setSalaryFrom('');
         setSalaryTo('');
+        onFilterChange(null);
+    };
+
+    const handleSubmit = (event : FormEvent) => {
+        event.preventDefault();
+        const filter : Filter = {
+            catalogueId: catalogueOption?.value || null,
+            salaryFrom,
+            salaryTo
+        };
+        onFilterChange(filter);
     };
 
     return (
@@ -48,7 +70,7 @@ export default function SearchForm() {
                     <Cross />
                 </WrapperReset>
             </TopPart>
-            <FormContent>
+            <FormContent onSubmit={handleSubmit}>
                 <Label>Отрасль</Label>
                 <Select
                     data-elem='industry-select'
@@ -56,8 +78,8 @@ export default function SearchForm() {
                     placeholder="Выберете отрасль"
                     classNamePrefix="react-select"
                     defaultOptions
-                    value={industryOption}
-                    onChange={(option: unknown) => setIndustryOption(option as OptionType)}
+                    value={catalogueOption}
+                    onChange={(option: unknown) => setCatalogueOption(option as OptionType)}
                 />
                 <Label>Оклад</Label>
                 <Input type='number'
