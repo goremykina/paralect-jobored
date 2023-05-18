@@ -10,12 +10,15 @@ import {
 import Location from '../../../../assets/icons/location.svg';
 import Star from "./components/star/star.tsx";
 import { Vacancy } from "../../../../services/vacancies-service.ts";
+import { getSalaryString } from "../../../../utils/money-utils.ts";
 
 type Props = {
     vacancy: Vacancy
 };
 
 export default function Vacancy({ vacancy } : Props) {
+    const salary = getSalaryString(vacancy);
+
     return (
         <OfferDiv>
             <OfferName>
@@ -25,8 +28,12 @@ export default function Vacancy({ vacancy } : Props) {
                 <Star isFavorite={vacancy.favorite} />
             </OfferName>
             <BriefInfo>
-                <Salary>{vacancy.payment_from}</Salary>
-                <span>・</span>
+                {salary ? (
+                    <>
+                        <Salary>{salary}</Salary>
+                        <span>・</span>
+                    </>) : null}
+
                 <Information>{vacancy.type_of_work.title}</Information>
             </BriefInfo>
             <LocationWrapper>

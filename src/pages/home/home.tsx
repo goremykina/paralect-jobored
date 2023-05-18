@@ -10,7 +10,7 @@ export default function Home()  {
 
     useEffect(() => {
         const getPage = async () => {
-            const page = await getVacanciesPage(0, 4);
+            const page = await getVacanciesPage(5, 4);
             setVacanciesPage(page);
         };
         getPage();

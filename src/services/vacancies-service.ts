@@ -18,6 +18,7 @@ export type Vacancy = {
     payment_to: number;
     town: Town;
     type_of_work: TypeOfWork;
+    currency: string;
 }
 
 export type VacanciesPage = {
