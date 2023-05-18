@@ -7,8 +7,8 @@ import {
     Information,
     LocationWrapper,
 } from "./style.ts";
-import Star from '../../../../assets/icons/star.svg';
 import Location from '../../../../assets/icons/location.svg';
+import Star from "./components/star/star.tsx";
 
 export default function Offer() {
 
@@ -23,16 +23,18 @@ export default function Offer() {
         town: {
             id: 14,
             title: "Санкт-Петербург"
-        }
+        },
+        favorite: true,
+        payment : 'з/п от 70000 rub'
     };
     return (
         <OfferDiv>
             <OfferName>
                 <JobVacancy>{vacancy.profession}</JobVacancy>
-                <Star />
+                <Star isFavorite={vacancy.favorite} />
             </OfferName>
             <BriefInfo>
-                <Salary>зп от 30000</Salary>
+                <Salary>{vacancy.payment}</Salary>
                 <span>・</span>
                 <Information>{vacancy.type_of_work.title}</Information>
             </BriefInfo>

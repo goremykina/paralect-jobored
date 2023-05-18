@@ -3,6 +3,7 @@ import Main from "./components/main/main.tsx";
 import Home from './pages/home/home.tsx';
 import Details from "./pages/details/details.tsx";
 import NotFound from "./pages/not-found/not-found.tsx";
+import Favorites from "./pages/favorites/favorites.tsx";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
             {
                 path: "/vacancies/:id",
                 element: <Details />,
+            },
+            {
+                path: "/favorites",
+                element: <Favorites />
             },
             {
                 path: "*",

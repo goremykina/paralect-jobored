@@ -65,8 +65,18 @@ export default function SearchForm() {
                     onChange={(option: unknown) => setIndustryOption(option as OptionType)}
                 />
                 <Label>Оклад</Label>
-                <Input type='number' placeholder='От' min='0'  value={salaryFrom} data-elem='salary-from-input'></Input>
-                <Input type='number' placeholder='До' min='0' value={salaryTo} data-elem='salary-to-input'></Input>
+                <Input type='number'
+                       placeholder='От'
+                       min='0'
+                       value={salaryFrom}
+                       onChange={(event) => setSalaryFrom(event.target.value)}
+                       data-elem='salary-from-input' />
+                <Input type='number'
+                       placeholder='До'
+                       min='0'
+                       value={salaryTo}
+                       onChange={(event) => setSalaryTo(event.target.value)}
+                       data-elem='salary-to-input' />
                 <ButtonWrapper>
                     <Button data-elem='search-button'>Применить</Button>
                 </ButtonWrapper>
