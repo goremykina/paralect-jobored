@@ -7,20 +7,25 @@ import { getVacanciesPage, VacanciesPage } from "../../services/vacancies-servic
 
 export default function Home()  {
     const [vacanciesPage, setVacanciesPage] = useState<VacanciesPage | null>(null);
+    const [keyword, setKeyword] = useState('');
 
     useEffect(() => {
         const getPage = async () => {
-            const page = await getVacanciesPage(5, 4);
+            const page = await getVacanciesPage(0, 4, keyword);
             setVacanciesPage(page);
         };
         getPage();
-    }, []);
+    }, [keyword]);
+
+    const handleKeywordChanged = (newKeyword: string) => {
+        setKeyword(newKeyword);
+    };
 
     return (
         <HomeContent>
             <SearchForm />
             <Wrapper>
-                <JobSearch />
+                <JobSearch onKeywordChanged={handleKeywordChanged} />
                 <VacanciesList page={vacanciesPage} />
             </Wrapper>
         </HomeContent>

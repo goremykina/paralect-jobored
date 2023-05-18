@@ -31,10 +31,11 @@ export const getVacancy = async (id: string) => {
     return response.data;
 };
 
-export const getVacanciesPage = async (pageNumber: number, pageSize: number) => {
+export const getVacanciesPage = async (pageNumber: number, pageSize: number, keyword = '') => {
     const queryParameters = {
       page: pageNumber,
-      count: pageSize
+      count: pageSize,
+      keyword
     };
     const response = await api.get<VacanciesPage>('/vacancies', { params: queryParameters });
 

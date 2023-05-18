@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { white } from "../../../../styles/colors.ts";
 
-export const SearchJobDiv = styled.div`
+export const SearchJobForm = styled.form`
   position: relative;
 `;
 
