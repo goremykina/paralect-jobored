@@ -22,7 +22,7 @@ export default function Details() {
     }, [id]);
 
     if (!vacancy) {
-        return '';
+        return <div>Loading...</div>;
     }
 
     return (
