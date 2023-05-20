@@ -19,6 +19,7 @@ export type Vacancy = {
     town: Town;
     type_of_work: TypeOfWork;
     currency: string;
+    vacancyRichText: string;
 }
 
 export type VacanciesPage = {

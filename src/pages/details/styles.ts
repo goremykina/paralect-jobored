@@ -3,9 +3,6 @@ import { black, white } from "../../styles/colors.ts";
 
 export const WrapperDetails = styled.div`
   width: 48.3125rem;
-`;
-
-export const InformationList = styled.span`
   font-weight: 400;
   font-size: 16px;
   color: ${black};
