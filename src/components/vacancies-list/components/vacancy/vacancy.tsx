@@ -20,12 +20,12 @@ export default function Vacancy({ vacancy } : Props) {
     const salary = getSalaryString(vacancy);
 
     return (
-        <OfferDiv>
+        <OfferDiv data-elem={`vacancy-${vacancy.id}`}>
             <OfferName>
                 <JobTitleLink to={`/vacancies/${vacancy.id}`}>
                     {vacancy.profession}
                 </JobTitleLink>
-                <Star isFavorite={vacancy.favorite} />
+                <Star id={vacancy.id} isFavorite={vacancy.favorite} />
             </OfferName>
             <BriefInfo>
                 {salary ? (
