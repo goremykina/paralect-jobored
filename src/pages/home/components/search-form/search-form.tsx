@@ -1,3 +1,4 @@
+import { components, InputProps } from 'react-select';
 import {
     Filters,
     FormContent,
@@ -30,6 +31,11 @@ type Prop = {
     onFilterChange: (filter : Filter | null) => unknown;
 }
 
+const SelectInput = (props: InputProps) => {
+    return (
+        <components.Input data-elem="industry-select" {...props} />
+    );
+};
 
 export default function SearchForm({ onFilterChange } : Prop) {
     const [catalogueOption, setCatalogueOption] = useState<OptionType | null>(null);
@@ -73,13 +79,13 @@ export default function SearchForm({ onFilterChange } : Prop) {
             <FormContent onSubmit={handleSubmit}>
                 <Label>Отрасль</Label>
                 <Select
-                    data-elem='industry-select'
                     loadOptions={getOptions}
                     placeholder="Выберете отрасль"
                     classNamePrefix="react-select"
                     defaultOptions
                     value={catalogueOption}
                     onChange={(option: unknown) => setCatalogueOption(option as OptionType)}
+                    components={{ Input: SelectInput }}
                 />
                 <Label>Оклад</Label>
                 <Input type='number'
