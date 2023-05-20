@@ -5,6 +5,6 @@ export const MainContent = styled.div`
   display: flex;
   justify-content: center;
   padding: 2.5rem 0 2.75rem 0;
-  height: 100%;
+  flex-grow: 1;
 `;
 
