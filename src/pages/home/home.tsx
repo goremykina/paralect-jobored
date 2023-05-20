@@ -9,14 +9,15 @@ export default function Home()  {
     const [vacanciesPage, setVacanciesPage] = useState<VacanciesPage | null>(null);
     const [keyword, setKeyword] = useState('');
     const [filter, setFilter] = useState<Filter | null>(null);
+    const [pageNumber, setPageNumber] = useState(0);
 
     useEffect(() => {
         const getPage = async () => {
-            const page = await getVacanciesPage(0, 4, keyword, filter?.salaryFrom, filter?.salaryTo, filter?.catalogueId);
+            const page = await getVacanciesPage(pageNumber, 4, keyword, filter?.salaryFrom, filter?.salaryTo, filter?.catalogueId);
             setVacanciesPage(page);
         };
         getPage();
-    }, [keyword, filter]);
+    }, [keyword, filter, pageNumber]);
 
     const handleKeywordChanged = (newKeyword: string) => {
         setKeyword(newKeyword);
@@ -26,12 +27,16 @@ export default function Home()  {
         setFilter(newFilter);
     };
 
+    const handlePageNumberChanged = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    };
+
     return (
         <HomeContent>
             <SearchForm onFilterChange={handleFilterChanged} />
             <Wrapper>
                 <JobSearch onKeywordChanged={handleKeywordChanged} />
-                <VacanciesList page={vacanciesPage} />
+                <VacanciesList page={vacanciesPage} onPageNumberChanged={handlePageNumberChanged} />
             </Wrapper>
         </HomeContent>
     );

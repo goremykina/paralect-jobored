@@ -24,6 +24,8 @@ export type Vacancy = {
 export type VacanciesPage = {
     objects: Vacancy[];
     total: number;
+    totalPages: number;
+    number: number;
 }
 
 export const getVacancy = async (id: string) => {
@@ -42,7 +44,9 @@ export const getVacanciesPage = async (pageNumber: number, pageSize: number, key
       payment_to,
       catalogues: catalogueId
     };
-    const response = await api.get<VacanciesPage>('/vacancies', { params: queryParameters });
+    const { data } = await api.get<VacanciesPage>('/vacancies', { params: queryParameters });
+    data.number = pageNumber;
+    data.totalPages = Math.ceil(data.total / pageSize);
 
-    return response.data;
+    return data;
 };
