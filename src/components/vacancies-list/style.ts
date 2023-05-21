@@ -14,9 +14,10 @@ export const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${gaps.normal};
+  height: 100%;
 `;
 
-export const PageWrapper = styled(ReactPaginate)`
+export const Paginate = styled(ReactPaginate)`
   display: flex;
   gap: 0.5rem;
   list-style: none;

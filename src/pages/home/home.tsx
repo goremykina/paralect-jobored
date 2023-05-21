@@ -25,10 +25,12 @@ export default function Home()  {
     }, [keyword, filter, pageNumber]);
 
     const handleKeywordChanged = (newKeyword: string) => {
+        setPageNumber(0);
         setKeyword(newKeyword);
     };
 
     const handleFilterChanged = (newFilter : Filter | null) => {
+        setPageNumber(0);
         setFilter(newFilter);
     };
 

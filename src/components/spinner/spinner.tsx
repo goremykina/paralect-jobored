@@ -1,8 +1,11 @@
-import { HashLoader } from "react-spinners";
-import { blue } from "../../styles/colors.ts";
+import Logo from '../../assets/icons/logo.svg';
+import { AnimatedWrapper } from "./styles.ts";
+
 
 export default function Spinner() {
     return (
-        <HashLoader color={blue} size={80} speedMultiplier={2} />
+        <AnimatedWrapper>
+            <Logo />
+        </AnimatedWrapper>
     );
 }

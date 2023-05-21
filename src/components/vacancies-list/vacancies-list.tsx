@@ -1,5 +1,5 @@
 import { VacanciesPage } from "../../services/vacancies-service.ts";
-import { List, PageWrapper, SpinnerContainer } from "./style.ts";
+import { List, Paginate, SpinnerContainer } from "./style.ts";
 import Vacancy from "./components/vacancy/vacancy.tsx";
 import Spinner from "../spinner/spinner.tsx";
 
@@ -26,10 +26,11 @@ export default function VacanciesList({ page, isLoading, onPageNumberChanged } :
                 </List>
             )}
             {page && page.objects.length > 0 && (
-                <PageWrapper previousLabel='<'
-                             nextLabel='>'
-                             pageCount={totalPages}
-                             onPageChange={event => onPageNumberChanged(event.selected)}/>
+                <Paginate previousLabel='<'
+                          nextLabel='>'
+                          forcePage={page.number}
+                          pageCount={totalPages}
+                          onPageChange={event => onPageNumberChanged(event.selected)}/>
             )}
         </>
     );
