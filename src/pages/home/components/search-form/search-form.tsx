@@ -54,7 +54,6 @@ export default function SearchForm({ onFilterChange } : Prop) {
         setCatalogueOption(null);
         setSalaryFrom('');
         setSalaryTo('');
-        onFilterChange(null);
     };
 
     const handleSubmit = (event : FormEvent) => {
