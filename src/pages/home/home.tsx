@@ -10,11 +10,16 @@ export default function Home()  {
     const [keyword, setKeyword] = useState('');
     const [filter, setFilter] = useState<Filter | null>(null);
     const [pageNumber, setPageNumber] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const getPage = async () => {
+            setIsLoading(true);
+
             const page = await getVacanciesPage(pageNumber, 4, keyword, filter?.salaryFrom, filter?.salaryTo, filter?.catalogueId);
             setVacanciesPage(page);
+
+            setIsLoading(false);
         };
         getPage();
     }, [keyword, filter, pageNumber]);
@@ -36,7 +41,9 @@ export default function Home()  {
             <SearchForm onFilterChange={handleFilterChanged} />
             <Wrapper>
                 <JobSearch onKeywordChanged={handleKeywordChanged} />
-                <VacanciesList page={vacanciesPage} onPageNumberChanged={handlePageNumberChanged} />
+                <VacanciesList page={vacanciesPage}
+                               isLoading={isLoading}
+                               onPageNumberChanged={handlePageNumberChanged} />
             </Wrapper>
         </HomeContent>
     );

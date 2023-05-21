@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { InfoWrapper, WrapperDetails } from "./styles.ts";
 import { getVacancy, Vacancy as VacancyType } from "../../services/vacancies-service.ts";
 import Vacancy from "../../components/vacancies-list/components/vacancy/vacancy.tsx";
+import Spinner from "../../components/spinner/spinner.tsx";
 
 export default function Details() {
     const { id } = useParams();
@@ -22,7 +23,7 @@ export default function Details() {
     }, [id]);
 
     if (!vacancy) {
-        return <div>Loading...</div>;
+        return <Spinner />;
     }
 
     return (

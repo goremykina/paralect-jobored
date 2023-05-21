@@ -3,6 +3,13 @@ import { gaps } from "../../styles/dismesions.ts";
 import ReactPaginate from "react-paginate";
 import { black, blue, white } from "../../styles/colors.ts";
 
+export const SpinnerContainer = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const List = styled.div`
   display: flex;
   flex-direction: column;
