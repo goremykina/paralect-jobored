@@ -47,12 +47,13 @@ export const getVacanciesPage = async (pageNumber: number, pageSize: number, key
                                        payment_from : string | null = '', payment_to : string | null = '',
                                        catalogueId : string | null = '') => {
     const queryParameters = {
-      page: pageNumber,
-      count: pageSize,
-      keyword,
-      payment_from,
-      payment_to,
-      catalogues: catalogueId
+        page: pageNumber,
+        count: pageSize,
+        keyword,
+        payment_from,
+        payment_to,
+        catalogues: catalogueId,
+        published: 1
     };
     const { data } = await api.get<VacanciesPage>('/vacancies', { params: queryParameters });
     data.number = pageNumber;
