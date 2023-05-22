@@ -3,7 +3,7 @@ import { black, gray500, lightGray, white } from "../../../../styles/colors.ts";
 import AsyncSelect from "react-select/async";
 
 export const Filters = styled.div`
-  width: 25rem;
+  min-width: 20rem;
   background: ${white};
   border: 1px solid #EAEBED;
   border-radius: 0.75rem;
