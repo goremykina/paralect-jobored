@@ -30,7 +30,7 @@ export default function DetailsPage() {
     return (
         <WrapperDetails>
             {isLoading && <Spinner />}
-            {!isLoading && !vacancy && <NotFound />}
+            {!isLoading && !vacancy && <NotFound showSearchButton={true} />}
             {!isLoading && vacancy && (
                 <>
                     <Vacancy vacancy={vacancy} isListItem={false} />
