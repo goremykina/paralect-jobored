@@ -8,13 +8,17 @@ import NotFound from "../../components/not-found/not-found.tsx";
 const pageSize = 4;
 
 export default function FavoritesPage() {
-    const [favoriteVacancies, setFavoriteVacancies] = useState<Vacancy[]>([]);
+    const [favoriteVacancies, setFavoriteVacancies] = useState<Vacancy[] | null>(null);
     const [pageNumber, setPageNumber] = useState(0);
 
     useEffect(() => {
         const vacancies = getFavorites();
         setFavoriteVacancies(vacancies);
     }, []);
+
+    if (!favoriteVacancies) {
+        return <></>; // just show nothing because getFavorites is very quick
+    }
 
     const itemsToSkip = pageNumber * pageSize;
     const page : VacanciesPage = {
