@@ -90,12 +90,13 @@ export default function SearchForm({ onFilterChange } : Prop) {
                 <Input type='number'
                        placeholder='От'
                        min='0'
+                       max={salaryTo || ''}
                        value={salaryFrom}
                        onChange={(event) => setSalaryFrom(event.target.value)}
                        data-elem='salary-from-input' />
                 <Input type='number'
                        placeholder='До'
-                       min='0'
+                       min={salaryFrom || 0}
                        value={salaryTo}
                        onChange={(event) => setSalaryTo(event.target.value)}
                        data-elem='salary-to-input' />
