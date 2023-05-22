@@ -11,9 +11,9 @@ export const addFavorite = (vacancy : Vacancy) => {
     localStorage.setItem(key, JSON.stringify(favoriteVacancies));
 };
 
-export const removeFavorite = (id: string) => {
+export const removeFavorite = (vacancy : Vacancy) => {
     const favoriteVacancies = getFavorites();
-    const index = favoriteVacancies.findIndex(vacancy => vacancy.id === id);
+    const index = favoriteVacancies.findIndex(vacancy => vacancy.id === vacancy.id);
 
     if (index < 0) {
         return;
@@ -21,6 +21,8 @@ export const removeFavorite = (id: string) => {
 
     favoriteVacancies.splice(index, 1);
     localStorage.setItem(key, JSON.stringify(favoriteVacancies));
+
+    vacancy.favorite = false;
 };
 
 export const getFavorites = () : Vacancy[] => {
