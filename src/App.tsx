@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./components/main/main.tsx";
-import HomePage from './pages/home/homePage.tsx';
-import DetailsPage from "./pages/details/detailsPage.tsx";
+import HomePage from './pages/home/home-page.tsx';
+import DetailsPage from "./pages/details/details-page.tsx";
 import NotFoundPage from "./pages/not-found/not-found-page.tsx";
-import FavoritesPage from "./pages/favorites/favoritesPage.tsx";
+import FavoritesPage from "./pages/favorites/favorites-page.tsx";
 
 const router = createBrowserRouter([
     {
