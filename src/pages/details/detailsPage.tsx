@@ -5,7 +5,7 @@ import { getVacancy, Vacancy as VacancyType } from "../../services/vacancies-ser
 import Vacancy from "../../components/vacancies-list/components/vacancy/vacancy.tsx";
 import Spinner from "../../components/spinner/spinner.tsx";
 
-export default function Details() {
+export default function DetailsPage() {
     const { id } = useParams();
     const [vacancy, setVacancy] = useState<VacancyType | null>(null);
 

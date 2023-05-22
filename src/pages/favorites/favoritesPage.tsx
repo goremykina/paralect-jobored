@@ -3,10 +3,11 @@ import VacanciesList from "../../components/vacancies-list/vacancies-list.tsx";
 import { useEffect, useState } from "react";
 import { VacanciesPage, Vacancy } from "../../services/vacancies-service.ts";
 import { getFavorites } from "../../services/favorite-service.ts";
+import NotFound from "../../components/not-found/not-found.tsx";
 
 const pageSize = 4;
 
-export default function Favorites() {
+export default function FavoritesPage() {
     const [favoriteVacancies, setFavoriteVacancies] = useState<Vacancy[]>([]);
     const [pageNumber, setPageNumber] = useState(0);
 
@@ -29,7 +30,14 @@ export default function Favorites() {
 
     return (
         <WrapperFavorites>
-            <VacanciesList page={page} onPageNumberChanged={handlePageNumberChanged} />
+            {favoriteVacancies.length === 0
+                ? (
+                    <NotFound />
+                )
+                : (
+                    <VacanciesList page={page} onPageNumberChanged={handlePageNumberChanged} />
+                )
+            }
         </WrapperFavorites>
     );
 }

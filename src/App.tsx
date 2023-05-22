@@ -1,9 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./components/main/main.tsx";
-import Home from './pages/home/home.tsx';
-import Details from "./pages/details/details.tsx";
-import NotFound from "./pages/not-found/not-found.tsx";
-import Favorites from "./pages/favorites/favorites.tsx";
+import HomePage from './pages/home/homePage.tsx';
+import DetailsPage from "./pages/details/detailsPage.tsx";
+import NotFoundPage from "./pages/not-found/not-found-page.tsx";
+import FavoritesPage from "./pages/favorites/favoritesPage.tsx";
 
 const router = createBrowserRouter([
     {
@@ -11,19 +11,19 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home />,
+                element: <HomePage />,
             },
             {
                 path: "/vacancies/:id",
-                element: <Details />,
+                element: <DetailsPage />,
             },
             {
                 path: "/favorites",
-                element: <Favorites />
+                element: <FavoritesPage />
             },
             {
                 path: "*",
-                element: <NotFound />
+                element: <NotFoundPage />
             }
         ]
     }
