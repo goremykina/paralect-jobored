@@ -4,25 +4,32 @@ import { useEffect, useState } from "react";
 import { VacanciesPage, Vacancy } from "../../services/vacancies-service.ts";
 import { getFavorites } from "../../services/favorite-service.ts";
 
+const pageSize = 4;
 
 export default function Favorites() {
     const [favoriteVacancies, setFavoriteVacancies] = useState<Vacancy[]>([]);
+    const [pageNumber, setPageNumber] = useState(0);
 
     useEffect(() => {
         const vacancies = getFavorites();
         setFavoriteVacancies(vacancies);
     }, []);
 
+    const itemsToSkip = pageNumber * pageSize;
     const page : VacanciesPage = {
-        totalPages: 1,
-        number: 0,
+        totalPages:  Math.ceil(favoriteVacancies.length / pageSize),
+        number: pageNumber,
         total: favoriteVacancies.length,
-        objects: favoriteVacancies
+        objects: favoriteVacancies.slice(itemsToSkip, itemsToSkip + pageSize)
+    };
+
+    const handlePageNumberChanged = (newPageNumber: number) => {
+        setPageNumber(newPageNumber);
     };
 
     return (
         <WrapperFavorites>
-            <VacanciesList page={page} />
+            <VacanciesList page={page} onPageNumberChanged={handlePageNumberChanged} />
         </WrapperFavorites>
     );
 }
