@@ -4,10 +4,12 @@ import { InfoWrapper, WrapperDetails } from "./styles.ts";
 import { getVacancy, Vacancy as VacancyType } from "../../services/vacancies-service.ts";
 import Vacancy from "../../components/vacancies-list/components/vacancy/vacancy.tsx";
 import Spinner from "../../components/spinner/spinner.tsx";
+import NotFound from "../../components/not-found/not-found.tsx";
 
 export default function DetailsPage() {
     const { id } = useParams();
     const [vacancy, setVacancy] = useState<VacancyType | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         if (!id) {
@@ -15,8 +17,11 @@ export default function DetailsPage() {
         }
 
         const fetchVacancy = async () => {
-          const response = await getVacancy(id);
-          setVacancy(response);
+            setIsLoading(true);
+            const response = await getVacancy(id);
+
+            setVacancy(response);
+            setIsLoading(false);
         };
 
         fetchVacancy();
@@ -24,8 +29,9 @@ export default function DetailsPage() {
 
     return (
         <WrapperDetails>
-            {!vacancy && <Spinner />}
-            {vacancy && (
+            {isLoading && <Spinner />}
+            {!isLoading && !vacancy && <NotFound />}
+            {!isLoading && vacancy && (
                 <>
                     <Vacancy vacancy={vacancy} isListItem={false} />
                     <InfoWrapper dangerouslySetInnerHTML={{ __html: vacancy.vacancyRichText }} />

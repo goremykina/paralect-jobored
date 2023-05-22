@@ -30,13 +30,17 @@ export type VacanciesPage = {
     number: number;
 }
 
-export const getVacancy = async (id: string) => {
-    const response = await api.get<Vacancy>(`/vacancies/${id}`);
-    const favorites = getFavorites();
+export const getVacancy = async (id: string) : Promise<Vacancy | null> => {
+    try {
+        const response = await api.get<Vacancy>(`/vacancies/${id}`);
+        const favorites = getFavorites();
 
-    response.data.favorite = favorites.some(f => f.id === response.data.id);
+        response.data.favorite = favorites.some(f => f.id === response.data.id);
 
-    return response.data;
+        return response.data;
+    } catch(error) {
+        return null;
+    }
 };
 
 export const getVacanciesPage = async (pageNumber: number, pageSize: number, keyword : string | null = '',
