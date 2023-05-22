@@ -10,6 +10,7 @@ import Location from '../../../../assets/icons/location.svg';
 import Star from "./components/star/star.tsx";
 import { Vacancy } from "../../../../services/vacancies-service.ts";
 import { getSalaryString } from "../../../../utils/money-utils.ts";
+import { addFavorite, removeFavorite } from "../../../../services/favorite-service.ts";
 
 type Props = {
     vacancy: Vacancy,
@@ -18,6 +19,14 @@ type Props = {
 
 export default function Vacancy({ vacancy, isListItem } : Props) {
     const salary = getSalaryString(vacancy);
+
+    const handleToggleRequested = () => {
+        if (vacancy.favorite) {
+            removeFavorite(vacancy.id);
+        } else {
+            addFavorite(vacancy);
+        }
+    };
 
     return (
         <MainContainer data-elem={`vacancy-${vacancy.id}`}>
@@ -31,7 +40,9 @@ export default function Vacancy({ vacancy, isListItem } : Props) {
                     (<JobTitle>
                         {vacancy.profession}
                     </JobTitle>)}
-                <Star id={vacancy.id} isFavorite={vacancy.favorite} />
+                <Star id={vacancy.id}
+                      isFavorite={vacancy.favorite}
+                      toggleRequested={handleToggleRequested}/>
             </VacancyName>
             <BriefInfo>
                 {salary ? (

@@ -15,6 +15,7 @@ export const List = styled.div`
   flex-direction: column;
   gap: ${gaps.normal};
   height: 100%;
+  width: 100%;
 `;
 
 export const Paginate = styled(ReactPaginate)`

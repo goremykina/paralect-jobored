@@ -5,8 +5,8 @@ import Spinner from "../spinner/spinner.tsx";
 
 type Props = {
     page: VacanciesPage | null,
-    isLoading: boolean,
-    onPageNumberChanged: (pageNumber: number) => unknown;
+    isLoading?: boolean,
+    onPageNumberChanged?: (pageNumber: number) => unknown;
 };
 
 export default function VacanciesList({ page, isLoading, onPageNumberChanged } : Props) {
@@ -30,7 +30,7 @@ export default function VacanciesList({ page, isLoading, onPageNumberChanged } :
                           nextLabel='>'
                           forcePage={page.number}
                           pageCount={totalPages}
-                          onPageChange={event => onPageNumberChanged(event.selected)}/>
+                          onPageChange={event => onPageNumberChanged && onPageNumberChanged(event.selected)}/>
             )}
         </>
     );

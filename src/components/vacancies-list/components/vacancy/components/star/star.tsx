@@ -4,17 +4,14 @@ import { StarButton } from "./style.ts";
 type Props = {
     id: string
     isFavorite: boolean
+    toggleRequested: () => unknown
 };
 
-export default function Star({ id, isFavorite } : Props) {
-    const handleChange = () => {
-        return;
-    };
-
+export default function Star({ id, isFavorite, toggleRequested } : Props) {
     return (
         <StarButton
             data-elem={`vacancy-${id}-shortlist-button`}
-            onClick={handleChange}
+            onClick={() => toggleRequested()}
             isFavorite={isFavorite}>
             <LogoStar />
         </StarButton>

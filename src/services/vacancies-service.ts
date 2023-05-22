@@ -1,4 +1,5 @@
 import api from "./api-service.ts";
+import { getFavorites } from "./favorite-service.ts";
 
 export type Town = {
     id: string;
@@ -31,6 +32,10 @@ export type VacanciesPage = {
 
 export const getVacancy = async (id: string) => {
     const response = await api.get<Vacancy>(`/vacancies/${id}`);
+    const favorites = getFavorites();
+
+    response.data.favorite = favorites.some(f => f.id === response.data.id);
+
     return response.data;
 };
 
@@ -48,6 +53,11 @@ export const getVacanciesPage = async (pageNumber: number, pageSize: number, key
     const { data } = await api.get<VacanciesPage>('/vacancies', { params: queryParameters });
     data.number = pageNumber;
     data.totalPages = Math.ceil(data.total / pageSize);
+
+    const favorites = getFavorites();
+    data.objects.forEach(vacancy => {
+        vacancy.favorite = favorites.some(f => f.id === vacancy.id);
+    });
 
     return data;
 };
