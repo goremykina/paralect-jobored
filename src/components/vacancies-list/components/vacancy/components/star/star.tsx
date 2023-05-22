@@ -10,8 +10,12 @@ type Props = {
 
 export default function Star({ vacancy } : Props) {
     const [isFavorite, setIsFavorite] = useState(vacancy.favorite);
+    const [isClicked, setIsClicked] = useState(false);
 
-    const toggle = () => {
+    const handleClick = () => {
+        setIsClicked(true);
+        setTimeout(() => setIsClicked(false), 250);
+
         if (isFavorite) {
             removeFavorite(vacancy);
         } else {
@@ -24,8 +28,9 @@ export default function Star({ vacancy } : Props) {
     return (
         <StarButton
             data-elem={`vacancy-${vacancy.id}-shortlist-button`}
-            onClick={() => toggle()}
-            isFavorite={isFavorite}>
+            onClick={() => handleClick()}
+            isFavorite={isFavorite}
+            isClicked={isClicked}>
             <LogoStar />
         </StarButton>
     );
