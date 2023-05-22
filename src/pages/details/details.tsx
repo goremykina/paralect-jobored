@@ -16,20 +16,21 @@ export default function Details() {
 
         const fetchVacancy = async () => {
           const response = await getVacancy(id);
-            setVacancy(response);
+          setVacancy(response);
         };
 
         fetchVacancy();
     }, [id]);
 
-    if (!vacancy) {
-        return <Spinner />;
-    }
-
     return (
         <WrapperDetails>
-            <Vacancy vacancy={vacancy} isListItem={false} />
-            <InfoWrapper dangerouslySetInnerHTML={{ __html: vacancy.vacancyRichText }} />
+            {!vacancy && <Spinner />}
+            {vacancy && (
+                <>
+                    <Vacancy vacancy={vacancy} isListItem={false} />
+                    <InfoWrapper dangerouslySetInnerHTML={{ __html: vacancy.vacancyRichText }} />
+                </>
+            )}
         </WrapperDetails>
     );
 }

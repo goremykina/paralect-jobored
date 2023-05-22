@@ -1,6 +1,6 @@
 import {
-    OfferDiv,
-    OfferName,
+    MainContainer,
+    VacancyName,
     JobTitleLink,
     BriefInfo,
     Salary,
@@ -20,8 +20,8 @@ export default function Vacancy({ vacancy, isListItem } : Props) {
     const salary = getSalaryString(vacancy);
 
     return (
-        <OfferDiv data-elem={`vacancy-${vacancy.id}`}>
-            <OfferName>
+        <MainContainer data-elem={`vacancy-${vacancy.id}`}>
+            <VacancyName>
                 {isListItem
                     ?
                     (<JobTitleLink to={`/vacancies/${vacancy.id}`}>
@@ -32,7 +32,7 @@ export default function Vacancy({ vacancy, isListItem } : Props) {
                         {vacancy.profession}
                     </JobTitle>)}
                 <Star id={vacancy.id} isFavorite={vacancy.favorite} />
-            </OfferName>
+            </VacancyName>
             <BriefInfo>
                 {salary ? (
                     <>
@@ -46,6 +46,6 @@ export default function Vacancy({ vacancy, isListItem } : Props) {
                 <Location />
                 <Town>{vacancy.town.title}</Town>
             </LocationWrapper>
-        </OfferDiv>
+        </MainContainer>
     );
 }

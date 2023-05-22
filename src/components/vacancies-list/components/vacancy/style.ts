@@ -6,7 +6,8 @@ type Props = {
     isEnlarged: boolean
 }
 
-export const OfferDiv = styled.div`
+export const MainContainer = styled.div`
+  width: 100%;
   background: ${white};
   border: 0.06rem solid #EAEBED;
   border-radius: 0.75rem;
@@ -16,7 +17,7 @@ export const OfferDiv = styled.div`
   padding: 1.5rem;
 `;
 
-export const OfferName = styled.div`
+export const VacancyName = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0;

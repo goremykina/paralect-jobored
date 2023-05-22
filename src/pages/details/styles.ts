@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { black, white } from "../../styles/colors.ts";
 
 export const WrapperDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 48.3125rem;
   font-weight: 400;
   font-size: 1rem;
