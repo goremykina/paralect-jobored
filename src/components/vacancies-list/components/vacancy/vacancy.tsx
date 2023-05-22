@@ -4,8 +4,7 @@ import {
     JobTitleLink,
     BriefInfo,
     Salary,
-    Information,
-    LocationWrapper,
+    LocationWrapper, JobTitle, Employment, Town,
 } from "./style.ts";
 import Location from '../../../../assets/icons/location.svg';
 import Star from "./components/star/star.tsx";
@@ -13,32 +12,39 @@ import { Vacancy } from "../../../../services/vacancies-service.ts";
 import { getSalaryString } from "../../../../utils/money-utils.ts";
 
 type Props = {
-    vacancy: Vacancy
+    vacancy: Vacancy,
+    isListItem: boolean
 };
 
-export default function Vacancy({ vacancy } : Props) {
+export default function Vacancy({ vacancy, isListItem } : Props) {
     const salary = getSalaryString(vacancy);
 
     return (
         <OfferDiv data-elem={`vacancy-${vacancy.id}`}>
             <OfferName>
-                <JobTitleLink to={`/vacancies/${vacancy.id}`}>
-                    {vacancy.profession}
-                </JobTitleLink>
+                {isListItem
+                    ?
+                    (<JobTitleLink to={`/vacancies/${vacancy.id}`}>
+                        {vacancy.profession}
+                    </JobTitleLink>)
+                    :
+                    (<JobTitle>
+                        {vacancy.profession}
+                    </JobTitle>)}
                 <Star id={vacancy.id} isFavorite={vacancy.favorite} />
             </OfferName>
             <BriefInfo>
                 {salary ? (
                     <>
-                        <Salary>{salary}</Salary>
+                        <Salary isEnlarged={!isListItem}>{salary}</Salary>
                         <span>・</span>
                     </>) : null}
 
-                <Information>{vacancy.type_of_work.title}</Information>
+                <Employment isEnlarged={!isListItem}>{vacancy.type_of_work.title}</Employment>
             </BriefInfo>
             <LocationWrapper>
                 <Location />
-                <Information>{vacancy.town.title}</Information>
+                <Town>{vacancy.town.title}</Town>
             </LocationWrapper>
         </OfferDiv>
     );

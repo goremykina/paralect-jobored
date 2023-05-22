@@ -22,7 +22,7 @@ export default function VacanciesList({ page, isLoading, onPageNumberChanged } :
             )}
             {!isLoading && (
                 <List>
-                    {page?.objects.map(vacancy => <Vacancy key={vacancy.id} vacancy={vacancy} />)}
+                    {page?.objects.map(vacancy => <Vacancy key={vacancy.id} vacancy={vacancy} isListItem={true} />)}
                 </List>
             )}
             {page && page.objects.length > 0 && (

@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { black, blue, white } from "../../../../styles/colors.ts";
 import { Link } from "react-router-dom";
 
+type Props = {
+    isEnlarged: boolean
+}
+
 export const OfferDiv = styled.div`
   background: ${white};
   border: 0.06rem solid #EAEBED;
@@ -22,9 +26,14 @@ export const OfferName = styled.div`
 export const JobTitleLink = styled(Link)`
   color: ${blue};
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.25rem;
   margin: 0;
   text-decoration: none;
+`;
+
+export const JobTitle = styled.h2`
+  margin: 0;
+  font-size: 1.75rem;
 `;
 
 export const BriefInfo = styled.div`
@@ -35,14 +44,21 @@ export const BriefInfo = styled.div`
 
 export const Salary = styled.span`
   font-weight: 600;
-  font-size: 16px;
+  font-size: ${(props: Props) => props.isEnlarged ? '1.25rem' : '1rem'};
   color: ${black};
   margin: 0;
 `;
 
-export const Information = styled.span`
+export const Employment = styled.span`
   font-weight: 400;
-  font-size: 16px;
+  font-size: ${(props: Props) => props.isEnlarged ? '1.25rem' : '1rem'};
+  color: ${black};
+  margin: 0;
+`;
+
+export const Town = styled.span`
+  font-weight: 400;
+  font-size: 1rem;
   color: ${black};
   margin: 0;
 `;

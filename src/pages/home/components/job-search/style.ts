@@ -8,7 +8,7 @@ export const SearchJobForm = styled.form`
 export const SearchJobInput = styled.input`
   display: block;
   width: 100%;
-  border: 1px solid #EAEBED;
+  border: 0.06rem solid #EAEBED;
   border-radius: 0.5rem;
   height: 3rem;
   background: ${white};

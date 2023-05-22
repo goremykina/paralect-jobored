@@ -28,7 +28,7 @@ export default function Details() {
 
     return (
         <WrapperDetails>
-            <Vacancy vacancy={vacancy} />
+            <Vacancy vacancy={vacancy} isListItem={false} />
             <InfoWrapper dangerouslySetInnerHTML={{ __html: vacancy.vacancyRichText }} />
         </WrapperDetails>
     );

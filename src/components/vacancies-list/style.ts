@@ -28,7 +28,7 @@ export const Paginate = styled(ReactPaginate)`
   & > li {
     background: ${white}
     color: ${black};
-    border: 1px solid #D5D6DC;
+    border: 0.06rem solid #D5D6DC;
     border-radius: 0.25rem;
     
     & > a {
@@ -47,7 +47,7 @@ export const Paginate = styled(ReactPaginate)`
     
     &.disabled {
       color: #D5D6DC;
-      border: 1px solid #EAEBED;
+      border: 0.06rem solid #EAEBED;
     }
   }
 `;

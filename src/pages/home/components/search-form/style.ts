@@ -24,20 +24,20 @@ export const FormContent = styled.form`
 
 export const Input = styled.input`
   height: 2.6rem;
-  border: 1px solid ${lightGray};
+  border: 0.06rem solid ${lightGray};
   border-radius: 0.5rem;
   padding: 0.75rem;
   font-size: 0.875rem;
 `;
 
 export const Label = styled.label`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   color: ${black};
 `;
 
 export const LabelUp = styled.label`
-  font-size: 20px;
+  font-size: 1.25rem;
   color: ${black};
   font-weight: 700;
 `;

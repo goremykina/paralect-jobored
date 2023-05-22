@@ -7,8 +7,8 @@ type Props = {
 
 export type Size = 'small' | 'unlimited';
 
-const getWidth = ({ size }: Props) => {
-    switch (size) {
+const getWidth = (props: Props) => {
+    switch (props.size) {
         case 'small':
             return '5.25rem';
         default:
@@ -25,7 +25,7 @@ const getHeight = ({ size }: Props) => {
     }
 };
 
-export const  StyledButton = styled.button`
+export const StyledButton = styled.button`
   height: ${getHeight};
   background: ${blue};
   border-radius: 0.5rem;
