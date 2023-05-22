@@ -1,7 +1,8 @@
 import { VacanciesPage } from "../../services/vacancies-service.ts";
-import { List, Paginate, SpinnerContainer } from "./style.ts";
+import { List, MainContainer, Paginate } from "./style.ts";
 import Vacancy from "./components/vacancy/vacancy.tsx";
 import Spinner from "../spinner/spinner.tsx";
+import NotFound from "../not-found/not-found.tsx";
 
 type Props = {
     page: VacanciesPage | null,
@@ -15,16 +16,15 @@ export default function VacanciesList({ page, isLoading, onPageNumberChanged } :
 
     return (
         <>
-            {isLoading && (
-                <SpinnerContainer>
-                    <Spinner />
-                </SpinnerContainer>
-            )}
-            {!isLoading && (
-                <List>
-                    {page?.objects.map(vacancy => <Vacancy key={vacancy.id} vacancy={vacancy} isListItem={true} />)}
-                </List>
-            )}
+            <MainContainer>
+                {isLoading && <Spinner />}
+                {!isLoading && !page?.total && <NotFound showSearchButton={false}/>}
+                {!isLoading && !!page?.objects.length && (
+                    <List>
+                        {page?.objects.map(vacancy => <Vacancy key={vacancy.id} vacancy={vacancy} isListItem={true} />)}
+                    </List>
+                )}
+            </MainContainer>
             {page && page.objects.length > 0 && (
                 <Paginate previousLabel='<'
                           nextLabel='>'

@@ -32,7 +32,7 @@ export default function FavoritesPage() {
         <WrapperFavorites>
             {favoriteVacancies.length === 0
                 ? (
-                    <NotFound />
+                    <NotFound showSearchButton={true} />
                 )
                 : (
                     <VacanciesList page={page} onPageNumberChanged={handlePageNumberChanged} />

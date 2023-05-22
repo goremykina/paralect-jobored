@@ -10,7 +10,7 @@ export default function HomePage()  {
     const [keyword, setKeyword] = useState('');
     const [filter, setFilter] = useState<Filter | null>(null);
     const [pageNumber, setPageNumber] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const getPage = async () => {
