@@ -8,6 +8,10 @@ export const Filters = styled.div`
   border: 1px solid #EAEBED;
   border-radius: 0.75rem;
   padding: 1.25rem;
+
+  @media(max-width: 450px) {
+    min-width: 100%;
+  }
 `;
 
 export const TopPart = styled.div`

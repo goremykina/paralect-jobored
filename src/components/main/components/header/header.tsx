@@ -1,9 +1,9 @@
-import { InnerBlock, Logo, Menu, ExternalBlock, LogoText, NavBarLink } from './style.ts';
+import { InnerBlock, Logo, Menu, OuterBlock, LogoText, NavBarLink } from './style.ts';
 import Icon from '../../../../assets/icons/logo.svg';
 
 export default function Header () {
     return (
-        <ExternalBlock>
+        <OuterBlock>
             <InnerBlock>
                 <Logo to="/">
                     <Icon />
@@ -14,6 +14,6 @@ export default function Header () {
                     <NavBarLink to="/favorites">Избранное</NavBarLink>
                 </Menu>
             </InnerBlock>
-        </ExternalBlock>
+        </OuterBlock>
     );
 }

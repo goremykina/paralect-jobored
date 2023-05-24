@@ -52,4 +52,10 @@ export const Paginate = styled(ReactPaginate)`
       border: 0.06rem solid #EAEBED;
     }
   }
+  
+  @media(max-width: 450px) {
+    & > li:not(.previous):not(.next) {
+      display: none;
+    }
+  }
 `;

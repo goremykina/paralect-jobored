@@ -3,6 +3,16 @@ import { black, blue, white } from '../../../../styles/colors.ts';
 import { gaps } from "../../../../styles/dismesions.ts";
 import { Link, NavLink } from "react-router-dom";
 
+export const OuterBlock = styled.div`
+  padding: ${gaps.medium} 0;
+  background-color: ${white};
+
+  @media(max-width: 600px) {
+    display: grid;
+    padding: 0 0 1rem;
+  }
+`;
+
 export const InnerBlock = styled.div`
   max-width: 70rem;
   display: flex;
@@ -10,6 +20,13 @@ export const InnerBlock = styled.div`
   justify-content: center;
   position: relative;
   margin: 0 auto;
+
+  @media(max-width: 600px) {
+    display: block;
+    position: initial;
+    width: 100%;
+    padding: 1rem;
+  }
 `;
 
 export const Logo = styled(Link)`
@@ -19,6 +36,11 @@ export const Logo = styled(Link)`
   left: 0;
   gap: 0.5rem;
   text-decoration: none;
+
+  @media(max-width: 600px) {
+    position: inherit;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const Menu = styled.div`
@@ -26,10 +48,6 @@ export const Menu = styled.div`
   gap: 3.75rem;
 `;
 
-export const ExternalBlock = styled.div`
-  padding: ${gaps.medium} 0;
-  background-color: ${white};
-`;
 
 export const NavBarLink = styled(NavLink)`
   font-family: 'Inter', serif;
@@ -47,5 +65,10 @@ export const LogoText = styled.h2`
   font-family: 'Poppins', serif;
   font-weight: 600;
   font-size: 1.5rem;
+  color: ${black};
+  
+  @media(max-width: 600px) {
+  margin: 0;
   color: ${black}
+}
 `;

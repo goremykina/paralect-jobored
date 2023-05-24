@@ -5,6 +5,11 @@ export const HomeContent = styled.div`
   display: flex;
   gap: 1.75rem;
   align-items: flex-start;
+
+  @media (max-width: 800px) {
+    display: grid;
+    width: 100%;
+  }
 `;
 
 export const Wrapper = styled.div`
